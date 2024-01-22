@@ -5,6 +5,7 @@
 // @description  Fixes Roblox Creator Hub (create.roblox.com) not being able to display certain asset types (images, meshes) and off-sale items. Also redirects place ids to www.roblox.com.
 // @author       Matt
 // @match        https://create.roblox.com/marketplace/asset/*
+// @match        https://create.roblox.com/store/asset/*
 // @grant        none
 // @require      https://code.jquery.com/jquery-3.7.1.min.js
 // ==/UserScript==
