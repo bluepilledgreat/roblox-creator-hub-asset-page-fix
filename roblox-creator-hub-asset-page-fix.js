@@ -24,7 +24,7 @@
 
             let content = await response.text();
 
-            if (!content.includes('"https://tools.ietf.org/html/rfc7231#section-6.5.4"')) {
+            if (!content.includes('"https://tools.ietf.org/html/rfc7231')) {
                 //return response;
                 // for some reason i have to do this or it wont work???
                 return new Response(content, {
