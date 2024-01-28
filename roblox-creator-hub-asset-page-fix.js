@@ -8,6 +8,7 @@
 // @match        https://create.roblox.com/store/asset/*
 // @grant        none
 // @require      https://code.jquery.com/jquery-3.7.1.min.js
+// @run-at       document-start
 // ==/UserScript==
 
 (function() {
