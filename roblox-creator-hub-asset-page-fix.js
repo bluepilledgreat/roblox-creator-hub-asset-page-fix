@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Fix Roblox Creator Hub asset page
-// @version      1.0
+// @version      1.2
 // @namespace    https://github.com/bluepilledgreat/roblox-creator-hub-asset-page-fix
 // @description  Fixes Roblox Creator Hub (create.roblox.com) not being able to display certain asset types (images, meshes) and off-sale items. Also redirects place ids to www.roblox.com.
 // @author       Matt
