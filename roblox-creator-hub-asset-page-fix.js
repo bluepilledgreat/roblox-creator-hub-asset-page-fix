@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Fix Roblox Creator Hub asset page
-// @version      1.2
+// @version      1.3
 // @namespace    https://github.com/bluepilledgreat/roblox-creator-hub-asset-page-fix
 // @description  Fixes Roblox Creator Hub (create.roblox.com) not being able to display certain asset types (images, meshes) and off-sale items. Also redirects place ids to www.roblox.com.
 // @author       Matt
@@ -14,18 +14,18 @@
 (function() {
     'use strict';
 
-    const _fetch = window.fetch;
+    const _fetch = window.fetch
     window.fetch = async (input, options) => {
-        const response = await _fetch(input, options);
+        const response = await _fetch(input, options)
 
         try {
             if (!input.includes('/toolbox-service/v1/items/details')) {
                 return response;
             }
 
-            let content = await response.text();
+            let content = await response.text()
 
-            if (!content.includes('"https://tools.ietf.org/html/rfc7231')) {
+            if (response.ok) {
                 //return response;
                 // for some reason i have to do this or it wont work???
                 return new Response(content, {
@@ -33,7 +33,7 @@
                     statusText: content.statusText,
                     headers: response.headers,
                     url: response.url
-                });
+                })
             }
 
             const assetIdIndex = input.lastIndexOf('=');
@@ -43,14 +43,15 @@
 
             const assetId = input.substring(assetIdIndex + 1);
 
-            const economyUrl = `https://economy.roblox.com/v2/assets/${assetId}/details`;
+            const economyUrl = `https://economy.roblox.com/v2/assets/${assetId}/details`
 
-            let economyResult;
+            let economyResult
 
             $.ajax({
                 url: economyUrl,
                 type: 'GET',
                 async: false,
+                xhrFields: {withCredentials: true},
 
                 success: function(result) {
                     economyResult = result;
@@ -120,7 +121,7 @@
                 statusText: 'Found',
                 headers: response.headers,
                 url: response.url
-            });
+            })
         } catch (err) {
             console.error(`ERR: ${err.message}`);
         }
