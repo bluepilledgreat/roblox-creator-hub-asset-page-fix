@@ -11,6 +11,8 @@
 // @run-at       document-start
 // ==/UserScript==
 
+const sendAccountCookiesToApi = false;
+
 (function() {
     'use strict';
 
@@ -51,7 +53,7 @@
                 url: economyUrl,
                 type: 'GET',
                 async: false,
-                xhrFields: {withCredentials: true},
+                xhrFields: {withCredentials: sendAccountCookiesToApi},
 
                 success: function(result) {
                     economyResult = result;
